@@ -56,10 +56,10 @@ return {
   <form @submit.prevent="addNewtodo">
     <label for="">New todo</label>
     <input v-model="newTodo" name="newTodo">
-    <button>Add New Todo</button>
+    <button class="add">Add New Todo</button>
   </form>
-  <button @click="removeAllTodos">Remove All</button>
-  <button @click="markAllDone">Mark All Done</button>
+  <button class="rall" @click="removeAllTodos">Remove All</button>
+  <button class="mall" @click="markAllDone">Mark All Done</button>
   <ul>
     <li v-for="(todo,index) in todos" v-bind:="todo.id" class="todo">
     <h3 :class="{ done : todo.done}" @click="toggleDone(todo)"> Todo{{ todo.content }}</h3>
@@ -72,25 +72,56 @@ return {
 </template>
 
 <style scoped>
-body{
-  font-family: sans-serif;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 2em;
-  width: 80%;
-  margin: 0 auto;
-}
 
-input, textarea, button, p, div, section, article, select{
+
+/* input, textarea, button, p, div, section, article, select{
   display: block;
-  width: 100%;
+  width: 60%;
   font-family: sans-serif;
   font-size: 1em;
   margin: 0.5em;
+} */
+.add{
+  background-color: green;
+  color: #fff;
+}
+.rall{
+  background-color: red;
+  color: #fff;
+}
+.mall{
+  background-color: blue;
+  color: #fff;
+}
+input{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+form button{
+  width: 100%;
+  margin: 0;
 }
 
+button{
+  width: 60%;
+  margin: 0.5em;
+  padding: 10px;
+}
+form{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+/* form input */
 .container{
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  border: 1px solid #000;
+  background-color: darkgrey;
 }
 
 .todo{
